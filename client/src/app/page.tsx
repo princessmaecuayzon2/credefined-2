@@ -62,11 +62,11 @@ const CubertoStyleWebsite: React.FC = () => {
       </div>
 
       <div id="projects">
-        <ProjectsSection mousePosition={mousePosition} />
+        <ProjectsSection />
       </div>
 
       <div id="services">
-        <ServicesSection mousePosition={mousePosition} />
+        <ServicesSection />
       </div>
 
       <div id="contact">

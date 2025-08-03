@@ -3,11 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-interface ServicesSectionProps {
-  mousePosition: { x: number; y: number };
-}
-
-const ServicesSection: React.FC<ServicesSectionProps> = () => {
+const ServicesSection: React.FC = () => {
   const [activeService, setActiveService] = useState(0);
   const [mouseParallax, setMouseParallax] = useState({ x: 0, y: 0 });
 
