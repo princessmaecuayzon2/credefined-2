@@ -404,9 +404,9 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 min-h-[70vh]">
           
-          {/* Project Navigation - Improved */}
+          {/* Project Navigation - Hidden on mobile */}
           <motion.div
-            className="lg:col-span-4 flex flex-col justify-center space-y-4"
+            className="hidden lg:flex lg:col-span-4 flex-col justify-center space-y-4"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -476,7 +476,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
             ))}
           </motion.div>
 
-          {/* Featured Project Display - Optimized */}
+          {/* Featured Project Display - Full width on mobile */}
           <motion.div
             className="lg:col-span-8 relative"
             initial={{ opacity: 0, x: 30 }}
@@ -547,23 +547,47 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
                 </div>
               </motion.div>
 
-              {/* Project indicators */}
+              {/* Arrow Navigation */}
               <motion.div
-                className="flex justify-center mt-6 space-x-2"
+                className="flex justify-between items-center mt-6"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                {projects.map((_, index) => (
-                  <motion.button
-                    key={index}
-                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                      activeProject === index ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/60'
-                    }`}
-                    onClick={() => handleProjectClick(index)}
-                    whileHover={{ scale: 1.1 }}
-                  />
-                ))}
+                <motion.button
+                  className="p-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
+                  onClick={() => handleProjectClick(activeProject === 0 ? projects.length - 1 : activeProject - 1)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </motion.button>
+                
+                <div className="flex space-x-2">
+                  {projects.map((_, index) => (
+                    <motion.button
+                      key={index}
+                      className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                        activeProject === index ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/60'
+                      }`}
+                      onClick={() => handleProjectClick(index)}
+                      whileHover={{ scale: 1.1 }}
+                    />
+                  ))}
+                </div>
+                
+                <motion.button
+                  className="p-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
+                  onClick={() => handleProjectClick(activeProject === projects.length - 1 ? 0 : activeProject + 1)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </motion.button>
               </motion.div>
             </div>
           </motion.div>

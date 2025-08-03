@@ -100,7 +100,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ navigateToSection, mousePosit
             style={{ x: magneticEffect.x * 0.5, y: magneticEffect.y * 0.5 }}
           >
             <motion.h1
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] leading-none relative w-full"
+              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] leading-none relative w-full"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5, delay: 0.2 }}
