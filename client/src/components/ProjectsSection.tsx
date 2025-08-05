@@ -525,14 +525,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
                     </p>
 
                     <div className="flex flex-wrap gap-3">
-                      <motion.button
-                        className="px-6 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-100 transition-colors duration-200"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => handleLinkClick(projects[activeProject].projectLink, false)}
-                      >
-                        View Project
-                      </motion.button>
+                     
                       
                       <motion.button
                         className="px-6 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-black transition-all duration-200"
